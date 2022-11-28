@@ -7,10 +7,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border: 0px solid green;
 
 }
-
+.barcharts{
+  width: 90%
+}
 .piecharts{
   display: flex;
   border: 0px solid yellow;
@@ -28,7 +31,7 @@
 
 }
 .bar-chart-container{
-  height: 700px;
+  height: 500px;
   border: 0px solid red;
   display: flex;
   flex-direction: column;
@@ -76,5 +79,6 @@ tr:nth-child(even), th {
   background-color: #dddddd;
 }
 .filter-section{
-  margin-top: 50px;
+  margin: 50px 0;
+  width: 100%;
 }
