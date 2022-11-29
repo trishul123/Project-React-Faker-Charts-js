@@ -28,10 +28,7 @@ function BarChart({countryobject}){
         plugins: {
           title: {
             display: true,
-            text: "Bar Chart"
-          },
-          legend: {
-            display: false
+            text: "Bar Chart (Hover over chart to see labels)"
           }
         }
       }}

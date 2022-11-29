@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import Tabledata from './table';
 import createusersdata from './createusersdata';
 import countFreq from './countFreq';
-//import {chartDatacountry,chartDatacarmakers,chartDatacarage} from './chartdata';
 import {BarChart,PieChart} from './charts';
 import {
   Chart as ChartJS,
@@ -25,13 +24,9 @@ ChartJS.register(
   Legend
 );
 function App() {
-  //creating desired profile data object
-// const usersobject=createusersdata();
-// console.log(usersobject);
-const [usersobject,setUserObject] = useState(()=>createusersdata());
+
 const [constusersobject,setconstUserObject] = useState(()=>createusersdata());
-
-
+const [usersobject,setUserObject] = useState(constusersobject);
 //frequency of countries
 let arrcountry=[]
 for(let i in constusersobject){
@@ -49,64 +44,6 @@ let ncarmakers = arrcarmakers.length;
 let carmakersobject=countFreq(arrcarmakers, ncarmakers);   
 console.log("created carmaker object",carmakersobject);
 
-// function filtercarmakers(usersobject,switchnumber){
-//   let filterusers=[];
-//     usersobject.filter((item)=>{
-//       switch (switchnumber) {
-//         case 0:
-//           if(item.age>20&&item.age<=25)
-//           return item;
-//           break;
-//         case 1:
-//           if(item.age>25&&item.age<=30)
-//           return item;
-//           break;
-//         case 2:
-//           if(item.age>30&&item.age<=35)
-//           return item;
-//           break;
-//         case 3:
-//           if(item.age>35&&item.age<=40)
-//           return item;
-//           break;
-//         case 4:
-//           if(item.age>40&&item.age<=45)
-//           return item;
-//           break;
-//         case 5:
-//           if(item.age>45&&item.age<=50)
-//           return item;
-//           break;
-//         case 6:
-//           if(item.age>50&&item.age<=55)
-//           return item;
-//           break;
-//         case 7:
-//           if(item.age>55&&item.age<=60)
-//           return item;
-//           break;
-//         case 8:
-//           if(item.age>60&&item.age<=65)
-//           return item;
-//           break;  
-        
-        
-//       }
-      
-      
-//     })
-//     .map(item=>{
-//       filterusers.push(
-//         item.carmaker
-//     );  
-//     })
-//     return filterusers;
-//     }
-// arrcarmakers=filtercarmakers(constusersobject,5);
-// let ncarmakers = arrcarmakers.length;
-// let carmakersobject=countFreq(arrcarmakers, ncarmakers);   
-// console.log("test",carmakersobject);
-
 //frequency of carage
 
 let arrcarage=[]
@@ -117,6 +54,7 @@ let ncarage = arrcarage.length;
 const carageobject=countFreq(arrcarage, ncarage);   
 console.log("created carage object",carageobject);
 
+//Data for Piecharts
 const chartDatacarmakers= {
   labels: carmakersobject.map((data) => data.item),
   datasets: [
@@ -163,11 +101,16 @@ const chartDatacarage= {
         <div className='barcharts'>
           <BarChart countryobject={countryobject}/>
         </div>
-        <div className='piecharts'>
-          <PieChart Data={chartDatacarmakers} name="Number of Car models based on Car makers" />
-          <PieChart Data={chartDatacarage} name="Number of Car models based on Car age" />
+        <div className='piecharts-section'>
+          <div className='filter-section'>
+            <h4>Select User age range for PieCharts</h4>
+            <Tabledata setUserObject={setUserObject} usersobject={usersobject} constusersobject={constusersobject}/>
+          </div>
+          <div className='piecharts'>
+            <PieChart Data={chartDatacarmakers} name="Number of Car models based on Car makers" />
+            <PieChart Data={chartDatacarage} name="Number of Car models based on Car age" />
+          </div>
         </div>
-         <section className='filter-section'><Tabledata setUserObject={setUserObject} usersobject={usersobject} constusersobject={constusersobject}/></section>
     </div>
   );
  }

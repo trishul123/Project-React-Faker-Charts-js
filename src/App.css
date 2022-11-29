@@ -3,22 +3,15 @@
 }
 .app{
   width: 85%;
-  margin: 0 auto;
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid green;
 
 }
 .barcharts{
-  width: 90%
-}
-.piecharts{
-  display: flex;
-  border: 0px solid yellow;
-  justify-content: center;
-  align-items: center;
+  width: 90%;
 
 }
 .bar-chart-card{
@@ -26,18 +19,38 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid pink;
   width: 100%;
 
 }
 .bar-chart-container{
   height: 500px;
-  border: 0px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+
+}
+.piecharts-section{
+  margin-top: 50px;
+ display: flex;
+ flex-direction: column;
+}
+.filter-section{
+  margin: 0px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#ageselect{
+  margin: 0 20px;
+}
+.piecharts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 .pie-chart-card{
@@ -45,7 +58,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid pink;
   width: 100%;
 
 
@@ -53,7 +65,6 @@
 .pie-chart-container{
   height: 500px;
   width: min-content;
-  border: 0px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,24 +72,4 @@
   margin: 0 5px 0 5px;
   width: 100%;
   
-}
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-  text-align: center;
-}
-
-tr:nth-child(even), th {
-  background-color: #dddddd;
-}
-.filter-section{
-  margin: 50px 0;
-  width: 100%;
 }
