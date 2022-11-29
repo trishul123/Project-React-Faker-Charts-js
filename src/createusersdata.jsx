@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 
 function createusersdata(){
     let users = []
-    for (let id=1; id <= 100000; id++) {
+    for (let id=1; id <= 1000; id++) {
       let fullName = faker.name.fullName();
       let address = faker.address.streetAddress()+" "+
                     faker.address.cityName();
